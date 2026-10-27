@@ -232,8 +232,18 @@ is now available and will run the metadata cache loop (`LIBRARYSYNC_WORKER_MODES
 
 ## Release
 
-Use the release helper to bump the version in `backend/pyproject.toml`, tag,
-and create a GitHub release.
+In GitHub, open **Actions → Release → Run workflow**, leave the branch on `main`,
+choose **patch**, **minor**, or **major** (default: patch), and click **Run workflow**.
+For example, patch changes `0.22.0` to `0.22.1`; minor changes it to `0.23.0`;
+major changes it to `1.0.0`.
+
+The workflow runs CI, updates `backend/pyproject.toml` and `uv.lock`, commits and
+tags the release on `main`, generates GitHub release notes, and publishes Docker
+images for the release tag and `latest`. It uses the built-in `GITHUB_TOKEN`;
+no additional secret is needed. If `main` changes during checks, rerun the workflow.
+Repository rules must allow GitHub Actions to push the release commit and tag.
+
+The existing release helper is also available locally:
 
 Examples:
 - `python scripts/release.py --patch`
