@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = ">=3.13"
 
 [manifest]
@@ -475,7 +475,7 @@ wheels = [
 
 [[package]]
 name = "librarysync"
-version = "0.22.0"
+version = "0.22.1"
 source = { editable = "backend" }
 dependencies = [
     { name = "alembic" },
